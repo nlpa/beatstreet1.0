@@ -169,7 +169,10 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     } // [onWardButtonPress end]
     
  
-//    @IBAction func wardDismiss(_ sender: Any) {
+    @IBAction func wardDismissInfo(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    //    @IBAction func wardDismiss(_ sender: Any) {
 //        dismiss(animated: true, completion: nil)
 //    }
 

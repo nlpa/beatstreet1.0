@@ -182,7 +182,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="questionmark.circle" catalog="system"/>
                                 <connections>
-                                    <segue destination="ulp-4V-7ex" kind="show" id="j3e-iZ-WZy"/>
+                                    <segue destination="ulp-4V-7ex" kind="presentation" id="seh-Bf-CJt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gH-IM-080">
@@ -245,12 +245,12 @@
             </objects>
             <point key="canvasLocation" x="1132" y="-583"/>
         </scene>
-        <!--View Controller-->
+        <!--Report View Controller-->
         <scene sceneID="2hE-zs-0WB">
             <objects>
-                <viewController id="ulp-4V-7ex" sceneMemberID="viewController">
+                <viewController id="ulp-4V-7ex" customClass="ReportViewController" customModule="beatstreet1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DAw-B5-kjg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="We utilize your residential ward number to notify your local Alderman of the report being filed for approval! " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-5E-EyD">
@@ -261,6 +261,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POD-6d-Vbq">
+                                <rect key="frame" x="190" y="431" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Okay"/>
+                                <connections>
+                                    <action selector="wardDismissInfo:" destination="ulp-4V-7ex" eventType="touchUpInside" id="5h8-PM-KSX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1bE-Iz-OUg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

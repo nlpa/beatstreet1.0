@@ -10,26 +10,25 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    // Connects mapKit
-    @IBOutlet weak var mapView: MKMapView!
+        // Connects mapKit
+        @IBOutlet weak var mapView: MKMapView!
         
         var locationManager = CLLocationManager()
         let authorizationStatus = CLLocationManager.authorizationStatus()
         let regionRadius: Double = 1000
         var numberOfLongPress : Int = 0
 
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        mapView.delegate = self
-        locationManager.delegate = self
-        configureLocationServices()
-        locationManager.startUpdatingLocation()
-        mapView.showsUserLocation = true
-        // Do any additional setup after loading the view.
-    }
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            // Do any additional setup after loading the view.
+            mapView.delegate = self
+            locationManager.delegate = self
+            configureLocationServices()
+            locationManager.startUpdatingLocation()
+            mapView.showsUserLocation = true
+        }
     
     // This function represents the longPress for the app in order to drop a pin with and the address will be displayed
     @IBAction func longPressDetected(_ sender: UILongPressGestureRecognizer) {
@@ -43,8 +42,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let newPin = MKPointAnnotation()
         newPin.coordinate = newCoordinates
             if let placemark = placemark{
-                addressString = "\(placemark.subThoroughfare) \(placemark.subThoroughfare)"
-//                addressString = "\(String(describing: placemark.subThoroughfare)) \(String(describing: placemark.subThoroughfare))"
+                addressString = "\(String(describing: placemark.subThoroughfare)) \(String(describing: placemark.subThoroughfare))"
                 print(addressString)
                 
                 newPin.title = addressString
@@ -53,7 +51,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
 
-    
     // Gesture recognizer
     func action(gestureRecognizer:UIGestureRecognizer){
         let touchPoint = gestureRecognizer.location(in: mapView)
@@ -79,7 +76,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return
         }
     }
-
 
     // reverse geoCodes in order to determine the address after the pindrop
     func lookUpCurrentLocation(coordinate: CLLocationCoordinate2D, completionHandler : @escaping (CLPlacemark?)
