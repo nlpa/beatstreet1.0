@@ -82,11 +82,9 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             imageView.image = image
-           
         }
         else{
-            print("no image")
-
+            print("No image")
         }
     }
     
@@ -107,64 +105,39 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                 self.presentAlert(title: "Error", message: err.localizedDescription)
                 return
             }
+            imgRef.downloadURL(completion: { (url, err) in
+                if let err = err {
+                    self.presentAlert(title: "Error", message: err.localizedDescription)
+                    return
+                }
+                guard let url = url else {
+                    self.presentAlert(title: "Error", message: "Something went wrong")
+                    return
+                }
+                let dataReference = Firestore.firestore().collection(MyKeys.imagesCollection).document()
+                let documentUid = dataReference.documentID
+                let urlString = url.absoluteString
+                let data = [MyKeys.uid: documentUid,
+                            MyKeys.imageUrl: urlString]
+                
+                dataReference.setData(data, completion: { (err) in
+                    if let err = err {
+                        self.presentAlert(title: "Error", message: err.localizedDescription)
+                        return
+                    }
+                    
+                    UserDefaults.standard.set(documentUid, forKey: MyKeys.uid)
+                    self.imageView.image = UIImage()
+                    self.presentAlert(title: "Success", message: "Successfully saved image to database")
+                })
+                
+            })
         }
-        
-        imgRef.downloadURL(completion: { (url, err) in
-            if let err = err {
-                self.presentAlert(title: "Error", message: err.localizedDescription)
-                return
-            }
-            guard let url = url else {
-                self.presentAlert(title: "Error", message: "Something went wrong")
-                return
-            }
-            let dataReference = Firestore.firestore().collection(MyKeys.imagesCollection).document()
-            let documentUid = dataReference.documentID
-            let urlString = url.absoluteString
-            let data = [MyKeys.uid: documentUid,
-                        MyKeys.imageUrl: urlString,
-                        ]
-            
-        })
-        
-//        let dateFormatter = DateFormatter()
-//        let date = Date(timeIntervalSinceReferenceDate: 118800)
-//        dateFormatter.locale = Locale(identifier: "en_US")
-//        print(dateFormatter.string(from: date)) // Jan 2, 2001
-//
-//
-//        // Data in memory -- save to database
-//        var data = Data()
-//        data = image.jpegData(compressionQuality: 0.8)! as Data
-//
-//        // set upload path
-//        let filePath = "/image/report.jpg" // path where you wanted to store img in storage
-//        let metaData = StorageMetadata()
-//        metaData.contentType = "image/jpg"
-//
-//        let imageRef = Storage.storage().reference()
-//        imageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//            }
-//            // Metadata contains file metadata such as size, content-type.
-//            let size = metaData!.size
-//            // You can also access to download URL after upload.
-//            imageRef.downloadURL { (url, error) in
-//              guard let downloadURL = url else {
-//                // Uh-oh, an error occurred!
-//                return
-//              }
-//            }
-//        }
     }
-    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
         picker.dismiss(animated: true, completion: nil)
-        
     }
     
     //-------------------------------
@@ -174,7 +147,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func segueChangeSelect(_ sender: Any) // when one is selected the reportType will be updated
     {
-        
         
         if segue.selectedSegmentIndex == 0 // zero for option 1 "Report a Street"
         {
@@ -187,7 +159,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 //            TitleScreenLable.text = "Submit A Bestowed Road"
             self.reportType = "bestowed road"
         }
-        
         
     }// [segueChangeSelect END]
     
@@ -230,6 +201,8 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                     reportRef.setValue(report.toAnyObject())
                 }
             })
+            
+            self.uploadPhoto()
             
         }
         
