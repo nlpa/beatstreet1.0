@@ -12,15 +12,15 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
-        // Connects mapKit
-        @IBOutlet weak var mapView: MKMapView!
+    // Connects mapKit
+    @IBOutlet weak var mapView: MKMapView!
         
         var locationManager = CLLocationManager()
         let authorizationStatus = CLLocationManager.authorizationStatus()
         let regionRadius: Double = 1000
         var numberOfLongPress : Int = 0
 
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         
         super.viewDidLoad()
         mapView.delegate = self

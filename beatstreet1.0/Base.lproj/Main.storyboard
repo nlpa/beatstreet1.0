@@ -61,6 +61,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aYI-ut-Zas">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="EON-l4-cUv" appends="YES" id="Fn6-5A-RMZ"/>
+                                </connections>
                             </mapView>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEz-vj-6br">
                                 <rect key="frame" x="0.0" y="88" width="414" height="44"/>
