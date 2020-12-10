@@ -238,9 +238,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh1-D9-e6g">
-                                <rect key="frame" x="163" y="321" width="88" height="30"/>
+                                <rect key="frame" x="148" y="321" width="118" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Ward locator"/>
+                                <state key="normal" title="Locate your ward"/>
                                 <connections>
                                     <action selector="onWardButtonPress:" destination="K5D-wE-Dc2" eventType="touchUpInside" id="tez-Eb-rKc"/>
                                 </connections>
