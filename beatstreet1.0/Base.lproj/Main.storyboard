@@ -18,16 +18,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bs-logotype" translatesAutoresizingMaskIntoConstraints="NO" id="Ccd-0m-aDY">
-                                <rect key="frame" x="15" y="44" width="385" height="205"/>
+                                <rect key="frame" x="31" y="24" width="353" height="187"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chicago flag" translatesAutoresizingMaskIntoConstraints="NO" id="Kgk-dJ-uQB">
+                                <rect key="frame" x="-60" y="515" width="535" height="298"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0yT-Ct-PN0">
+                                <rect key="frame" x="31" y="283" width="353" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">We provide reports to the Chicago transportation systems through resident report/vote aggregation to improve roads all across the city. </string>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rq-ud-Ejf">
+                                <rect key="frame" x="138" y="219" width="138" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dho-yU-syY">
+                                <rect key="frame" x="31" y="327" width="353" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">We believe that our voices are stronger together and by partnering with the Chicago Department of Transportation, we can improve road repair across the city. </string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="By partnering with the city we hope to reallocate city resources to ensure that all parts of the city are equally cared for." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wrx-UO-Z6Y">
+                                <rect key="frame" x="31" y="388" width="353" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ccd-0m-aDY" secondAttribute="bottom" constant="564" id="9Nh-ql-UuH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ccd-0m-aDY" secondAttribute="bottom" constant="626" id="9Nh-ql-UuH"/>
                             <constraint firstItem="Ccd-0m-aDY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I5w-Yf-fyV"/>
-                            <constraint firstItem="Ccd-0m-aDY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MCy-BL-X21"/>
-                            <constraint firstItem="Ccd-0m-aDY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="dbl-Zq-nTQ"/>
+                            <constraint firstItem="Ccd-0m-aDY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="MCy-BL-X21"/>
+                            <constraint firstItem="Ccd-0m-aDY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="dbl-Zq-nTQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house" id="8Mh-P5-Irg"/>
@@ -253,10 +289,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="We utilize your residential ward number to notify your local Alderman of the report being filed for approval! " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-5E-EyD">
-                                <rect key="frame" x="87" y="333" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="We utilize your residential ward number to notify your local Alderman of the report being filed for approval! " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-5E-EyD">
+                                <rect key="frame" x="87" y="333" width="240" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -269,6 +304,13 @@
                                     <action selector="wardDismissInfo:" destination="ulp-4V-7ex" eventType="touchUpInside" id="5h8-PM-KSX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Why do we need your ward number?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0Q-rm-uFy">
+                                <rect key="frame" x="68" y="256" width="278" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1bE-Iz-OUg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -284,6 +326,7 @@
         <image name="bs-logotype" width="4084" height="678"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="checkmark.seal" catalog="system" width="128" height="128"/>
+        <image name="chicago flag" width="5103" height="3400"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
