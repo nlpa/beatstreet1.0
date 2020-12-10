@@ -93,7 +93,7 @@
                             <outlet property="delegate" destination="FlE-jS-8sM" id="1x6-d1-exD"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Vote" selectedImage="hand.thumbsup" catalog="system" id="cqf-W6-SDv"/>
+                    <tabBarItem key="tabBarItem" title="Vote" image="hand.thumbsup" catalog="system" selectedImage="hand.thumbsup" id="cqf-W6-SDv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pgo-i6-bhJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
