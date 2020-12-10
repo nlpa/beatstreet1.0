@@ -44,6 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         newPin.coordinate = newCoordinates
             if let placemark = placemark{
                 addressString = "\(placemark.subThoroughfare) \(placemark.subThoroughfare)"
+//                addressString = "\(String(describing: placemark.subThoroughfare)) \(String(describing: placemark.subThoroughfare))"
                 print(addressString)
                 
                 newPin.title = addressString
@@ -51,6 +52,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
+
     
     // Gesture recognizer
     func action(gestureRecognizer:UIGestureRecognizer){
