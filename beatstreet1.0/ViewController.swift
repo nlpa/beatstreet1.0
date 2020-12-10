@@ -13,6 +13,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func onClickWardHelp(_ sender: UIButton) {
+        UIApplication.shared.open(URL(string:"https://www.chicago.gov/city/en/about/wards.html")! as URL, options: [:], completionHandler: nil)
+        
+    }
+    
+    
+    @IBAction func unwindToRed(unwindSegue: UIStoryboardSegue) { } // func used to revert setting screen to menu
 
 
 }

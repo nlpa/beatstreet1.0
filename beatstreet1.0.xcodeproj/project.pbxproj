@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0573ECDA25819B7F0039D607 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573ECD925819B7F0039D607 /* User.swift */; };
+		0573ECE825819B9E0039D607 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573ECE725819B9E0039D607 /* Report.swift */; };
+		0573ECED25819BF90039D607 /* VoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573ECEC25819BF90039D607 /* VoteTableViewController.swift */; };
+		0573ECF225819C070039D607 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573ECF125819C070039D607 /* ReportViewController.swift */; };
+		0573ECF725819C150039D607 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573ECF625819C150039D607 /* MapViewController.swift */; };
+		0573ECFC25819C340039D607 /* StreetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573ECFB25819C340039D607 /* StreetTableViewController.swift */; };
+		0573ED1F2581BAD10039D607 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0573ED1E2581BAD10039D607 /* GoogleService-Info.plist */; };
+		0573ED272581BAFA0039D607 /* Street.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0573ED262581BAFA0039D607 /* Street.swift */; };
 		05D1299A25813F54005244C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1299925813F54005244C9 /* AppDelegate.swift */; };
 		05D1299C25813F54005244C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1299B25813F54005244C9 /* SceneDelegate.swift */; };
 		05D1299E25813F54005244C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1299D25813F54005244C9 /* ViewController.swift */; };
@@ -15,6 +23,7 @@
 		05D129A625813F56005244C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D129A425813F56005244C9 /* LaunchScreen.storyboard */; };
 		05D129B125813F56005244C9 /* beatstreet1_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D129B025813F56005244C9 /* beatstreet1_0Tests.swift */; };
 		05D129BC25813F56005244C9 /* beatstreet1_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D129BB25813F56005244C9 /* beatstreet1_0UITests.swift */; };
+		68BD68847EE3787C9CFEC321 /* Pods_beatstreet1_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C94F43FB4D857ADABF962B /* Pods_beatstreet1_0.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0573ECD925819B7F0039D607 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0573ECE725819B9E0039D607 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		0573ECEC25819BF90039D607 /* VoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTableViewController.swift; sourceTree = "<group>"; };
+		0573ECF125819C070039D607 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		0573ECF625819C150039D607 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0573ECFB25819C340039D607 /* StreetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetTableViewController.swift; sourceTree = "<group>"; };
+		0573ED1E2581BAD10039D607 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0573ED262581BAFA0039D607 /* Street.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Street.swift; sourceTree = "<group>"; };
 		05D1299625813F54005244C9 /* beatstreet1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beatstreet1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D1299925813F54005244C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05D1299B25813F54005244C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +66,9 @@
 		05D129B725813F56005244C9 /* beatstreet1.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = beatstreet1.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D129BB25813F56005244C9 /* beatstreet1_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beatstreet1_0UITests.swift; sourceTree = "<group>"; };
 		05D129BD25813F56005244C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C882490B4FA92C7E0610167 /* Pods-beatstreet1.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beatstreet1.0.debug.xcconfig"; path = "Target Support Files/Pods-beatstreet1.0/Pods-beatstreet1.0.debug.xcconfig"; sourceTree = "<group>"; };
+		E5AB8E36799CF137BF15BE25 /* Pods-beatstreet1.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beatstreet1.0.release.xcconfig"; path = "Target Support Files/Pods-beatstreet1.0/Pods-beatstreet1.0.release.xcconfig"; sourceTree = "<group>"; };
+		F1C94F43FB4D857ADABF962B /* Pods_beatstreet1_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beatstreet1_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68BD68847EE3787C9CFEC321 /* Pods_beatstreet1_0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,13 +97,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0573ECD825819B610039D607 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				0573ECD925819B7F0039D607 /* User.swift */,
+				0573ECE725819B9E0039D607 /* Report.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		05D1298D25813F54005244C9 = {
 			isa = PBXGroup;
 			children = (
+				0573ECD825819B610039D607 /* models */,
 				05D1299825813F54005244C9 /* beatstreet1.0 */,
 				05D129AF25813F56005244C9 /* beatstreet1.0Tests */,
 				05D129BA25813F56005244C9 /* beatstreet1.0UITests */,
 				05D1299725813F54005244C9 /* Products */,
+				E3014DB93B9111A7A8249C81 /* Pods */,
+				8C9562A27407E63EF6C72D64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,7 +138,13 @@
 				05D1299F25813F54005244C9 /* Main.storyboard */,
 				05D129A225813F56005244C9 /* Assets.xcassets */,
 				05D129A425813F56005244C9 /* LaunchScreen.storyboard */,
+				0573ED262581BAFA0039D607 /* Street.swift */,
+				0573ECEC25819BF90039D607 /* VoteTableViewController.swift */,
+				0573ECF125819C070039D607 /* ReportViewController.swift */,
+				0573ECFB25819C340039D607 /* StreetTableViewController.swift */,
+				0573ECF625819C150039D607 /* MapViewController.swift */,
 				05D129A725813F56005244C9 /* Info.plist */,
+				0573ED1E2581BAD10039D607 /* GoogleService-Info.plist */,
 			);
 			path = beatstreet1.0;
 			sourceTree = "<group>";
@@ -128,6 +167,23 @@
 			path = beatstreet1.0UITests;
 			sourceTree = "<group>";
 		};
+		8C9562A27407E63EF6C72D64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1C94F43FB4D857ADABF962B /* Pods_beatstreet1_0.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3014DB93B9111A7A8249C81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C882490B4FA92C7E0610167 /* Pods-beatstreet1.0.debug.xcconfig */,
+				E5AB8E36799CF137BF15BE25 /* Pods-beatstreet1.0.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05D129C025813F56005244C9 /* Build configuration list for PBXNativeTarget "beatstreet1.0" */;
 			buildPhases = (
+				5B6691C00A22C54CA4CE1BF0 /* [CP] Check Pods Manifest.lock */,
 				05D1299225813F54005244C9 /* Sources */,
 				05D1299325813F54005244C9 /* Frameworks */,
 				05D1299425813F54005244C9 /* Resources */,
+				8FA01A749D81B777807CFDD5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05D129A625813F56005244C9 /* LaunchScreen.storyboard in Resources */,
+				0573ED1F2581BAD10039D607 /* GoogleService-Info.plist in Resources */,
 				05D129A325813F56005244C9 /* Assets.xcassets in Resources */,
 				05D129A125813F54005244C9 /* Main.storyboard in Resources */,
 			);
@@ -253,14 +312,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5B6691C00A22C54CA4CE1BF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-beatstreet1.0-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FA01A749D81B777807CFDD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-beatstreet1.0/Pods-beatstreet1.0-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-beatstreet1.0/Pods-beatstreet1.0-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-beatstreet1.0/Pods-beatstreet1.0-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		05D1299225813F54005244C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0573ECDA25819B7F0039D607 /* User.swift in Sources */,
+				0573ECED25819BF90039D607 /* VoteTableViewController.swift in Sources */,
+				0573ECE825819B9E0039D607 /* Report.swift in Sources */,
 				05D1299E25813F54005244C9 /* ViewController.swift in Sources */,
 				05D1299A25813F54005244C9 /* AppDelegate.swift in Sources */,
 				05D1299C25813F54005244C9 /* SceneDelegate.swift in Sources */,
+				0573ECF225819C070039D607 /* ReportViewController.swift in Sources */,
+				0573ECFC25819C340039D607 /* StreetTableViewController.swift in Sources */,
+				0573ED272581BAFA0039D607 /* Street.swift in Sources */,
+				0573ECF725819C150039D607 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,16 +541,18 @@
 		};
 		05D129C125813F56005244C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C882490B4FA92C7E0610167 /* Pods-beatstreet1.0.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9727UJJUS;
 				INFOPLIST_FILE = beatstreet1.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.beatstreet1-0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nlpa.beatstreet1-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -451,16 +561,18 @@
 		};
 		05D129C225813F56005244C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5AB8E36799CF137BF15BE25 /* Pods-beatstreet1.0.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L9727UJJUS;
 				INFOPLIST_FILE = beatstreet1.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.beatstreet1-0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nlpa.beatstreet1-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
