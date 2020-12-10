@@ -10,6 +10,17 @@ import UIKit
 import Firebase
 import SDWebImage
 
+// for image upload to firebase storage
+import TinyConstraints
+import Kingfisher
+
+struct MyKeys {
+    static let imagesFolder = "imagesFolder"
+    static let imagesCollection = "imagesCollection"
+    static let uid = "uid"
+    static let imageUrl = "imageUrl"
+}
+
 class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var mobileNumber: UITextField!
@@ -31,8 +42,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         
     }
-    
-    
     
     // To upload Images or to take a pic with the camera
     
@@ -73,53 +82,82 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             imageView.image = image
-            
-            let dateFormatter = DateFormatter()
-            let date = Date(timeIntervalSinceReferenceDate: 118800)
-            dateFormatter.locale = Locale(identifier: "en_US")
-            print(dateFormatter.string(from: date)) // Jan 2, 2001
-            
-            
-            // Data in memory -- save to database
-            var data = Data()
-            data = image.jpegData(compressionQuality: 0.8)! as Data
-            
-            // set upload path
-            let filePath = "/image/report.jpg" // path where you wanted to store img in storage
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/jpg"
-
-            let imageRef = Storage.storage().reference()
-            imageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-                // Metadata contains file metadata such as size, content-type.
-                let size = metaData!.size
-                // You can also access to download URL after upload.
-                imageRef.downloadURL { (url, error) in
-                  guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
-                  }
-                }
-            }
-//            // Create a ref to the file we are uploading
-//            let imageRef = Storage.storage().reference().child("images/report.jpg");
-//
-//            // Upload file to the path
-//            _ = imageRef.put(data, metadata: nil) {metadata, error} in
-//            guard let metadata = metadata else {
-//                // error
-//                return
-//            }
-//            let downloadURL = metadata.downloadURL()
+           
         }
         else{
             print("no image")
 
         }
+    }
+    
+    func uploadPhoto() {
+        guard let image = imageView.image,
+              let data = image.jpegData(compressionQuality: 1.0) else {
+            presentAlert(title: "Error", message: "Something went wrong")
+            return
+        }
+        let imageName = UUID().uuidString
+        
+        let imgRef = Storage.storage().reference()
+            .child(MyKeys.imagesFolder)
+            .child(imageName)
+        
+        imgRef.putData(data, metadata: nil) { (metadata, err) in
+            if let err = err {
+                self.presentAlert(title: "Error", message: err.localizedDescription)
+                return
+            }
+        }
+        
+        imgRef.downloadURL(completion: { (url, err) in
+            if let err = err {
+                self.presentAlert(title: "Error", message: err.localizedDescription)
+                return
+            }
+            guard let url = url else {
+                self.presentAlert(title: "Error", message: "Something went wrong")
+                return
+            }
+            let dataReference = Firestore.firestore().collection(MyKeys.imagesCollection).document()
+            let documentUid = dataReference.documentID
+            let urlString = url.absoluteString
+            let data = [MyKeys.uid: documentUid,
+                        MyKeys.imageUrl: urlString,
+                        ]
+            
+        })
+        
+//        let dateFormatter = DateFormatter()
+//        let date = Date(timeIntervalSinceReferenceDate: 118800)
+//        dateFormatter.locale = Locale(identifier: "en_US")
+//        print(dateFormatter.string(from: date)) // Jan 2, 2001
+//
+//
+//        // Data in memory -- save to database
+//        var data = Data()
+//        data = image.jpegData(compressionQuality: 0.8)! as Data
+//
+//        // set upload path
+//        let filePath = "/image/report.jpg" // path where you wanted to store img in storage
+//        let metaData = StorageMetadata()
+//        metaData.contentType = "image/jpg"
+//
+//        let imageRef = Storage.storage().reference()
+//        imageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            // Metadata contains file metadata such as size, content-type.
+//            let size = metaData!.size
+//            // You can also access to download URL after upload.
+//            imageRef.downloadURL { (url, error) in
+//              guard let downloadURL = url else {
+//                // Uh-oh, an error occurred!
+//                return
+//              }
+//            }
+//        }
     }
     
     
@@ -213,6 +251,12 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
           currentCount += 1
           votesRef.setValue(currentCount)
        })
+    }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
     
     

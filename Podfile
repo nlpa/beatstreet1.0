@@ -10,6 +10,9 @@ target 'beatstreet1.0' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
   pod 'SDWebImage/WebP'
+  pod 'Kingfisher'
+  pod 'TinyConstraints'
 
 end
