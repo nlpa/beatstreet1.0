@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
     
         // Connects mapKit
         @IBOutlet weak var mapView: MKMapView!
@@ -30,6 +30,62 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             mapView.showsUserLocation = true
         }
     
+    @IBAction func searchClicked(_ sender: Any) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        present(searchController, animated: true, completion: nil)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = UIActivityIndicatorView.Style.medium
+        activityIndicator.center = self.view.center
+        activityIndicator.startAnimating()
+        
+        self.view.addSubview(activityIndicator)
+        
+        //Cancels searchBar
+        searchBar.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+        
+        // actually search the request
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = searchBar.text
+        
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        activeSearch.start{ (response, error) in
+
+
+            if response == nil   // TROUBLE
+            {
+                print("ERROR")
+            }
+            else
+            {
+                //Remove annotations
+                let annotations = self.mapView.annotations
+                self.mapView.removeAnnotations(annotations)
+
+                //Getting data
+                let latitude = response?.boundingRegion.center.latitude
+                let longitude = response?.boundingRegion.center.longitude
+
+               //Create annotation
+               let annotation = MKPointAnnotation()
+               annotation.title = searchBar.text
+               annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+               self.mapView.addAnnotation(annotation)
+
+                 //Zooming in on annotation
+                let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                let region = MKCoordinateRegion(center: coordinate, span: span)
+                self.mapView.setRegion(region, animated: true)
+            }
+            
+        }
+    }
+    
     // This function represents the longPress for the app in order to drop a pin with and the address will be displayed
     @IBAction func longPressDetected(_ sender: UILongPressGestureRecognizer) {
         let touchPoint = sender.location(in: mapView)
@@ -42,7 +98,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let newPin = MKPointAnnotation()
         newPin.coordinate = newCoordinates
             if let placemark = placemark{
-                addressString = "\(String(describing: placemark.subThoroughfare)) \(String(describing: placemark.subThoroughfare))"
+                addressString = "\(String(describing: placemark.subThoroughfare!)) \(String(describing: placemark.thoroughfare!))"
                 print(addressString)
                 
                 newPin.title = addressString

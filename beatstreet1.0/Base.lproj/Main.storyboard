@@ -113,11 +113,6 @@
                                     <outletCollection property="gestureRecognizers" destination="EON-l4-cUv" appends="YES" id="Fn6-5A-RMZ"/>
                                 </connections>
                             </mapView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEz-vj-6br">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7qE-Oy-rAs"/>
                         <color key="backgroundColor" red="0.076234460709999993" green="0.075866178290000003" blue="0.076602743129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -128,7 +123,13 @@
                             <constraint firstItem="aYI-ut-Zas" firstAttribute="leading" secondItem="7qE-Oy-rAs" secondAttribute="leading" id="bK9-1Y-FJ3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EUQ-Eu-Oee"/>
+                    <navigationItem key="navigationItem" id="EUQ-Eu-Oee">
+                        <barButtonItem key="rightBarButtonItem" title="Search" image="magnifyingglass" catalog="system" id="4Fg-E0-r4m">
+                            <connections>
+                                <action selector="searchClicked:" destination="Z2v-qX-Ytk" id="Teb-bl-qAT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="aYI-ut-Zas" id="jDe-pt-HHh"/>
                     </connections>
@@ -394,7 +395,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="We utilize your residential ward number to notify your local Alderman of the report being filed for approval! " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pTa-5E-EyD">
-                                <rect key="frame" x="64" y="234" width="288" height="90"/>
+                                <rect key="frame" x="64" y="234" width="288" height="68"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -429,7 +430,7 @@
                             <constraint firstItem="POD-6d-Vbq" firstAttribute="leading" secondItem="1bE-Iz-OUg" secondAttribute="leading" constant="191" id="IzB-0L-AdG"/>
                             <constraint firstItem="POD-6d-Vbq" firstAttribute="top" secondItem="c0Q-rm-uFy" secondAttribute="bottom" constant="95" id="Mle-oQ-8Ke"/>
                             <constraint firstItem="Lis-OG-ayH" firstAttribute="centerX" secondItem="pTa-5E-EyD" secondAttribute="centerX" id="RQz-ZJ-6cS"/>
-                            <constraint firstItem="1bE-Iz-OUg" firstAttribute="bottom" secondItem="pTa-5E-EyD" secondAttribute="bottom" constant="484" id="S3R-IA-ppJ"/>
+                            <constraint firstItem="1bE-Iz-OUg" firstAttribute="bottom" secondItem="pTa-5E-EyD" secondAttribute="bottom" constant="506" id="S3R-IA-ppJ"/>
                             <constraint firstItem="1bE-Iz-OUg" firstAttribute="trailing" secondItem="Lis-OG-ayH" secondAttribute="trailing" constant="42" id="aCv-8O-5D5"/>
                             <constraint firstItem="c0Q-rm-uFy" firstAttribute="leading" secondItem="1bE-Iz-OUg" secondAttribute="leading" constant="56" id="cSu-c7-1CX"/>
                             <constraint firstItem="Lis-OG-ayH" firstAttribute="centerX" secondItem="c0Q-rm-uFy" secondAttribute="centerX" id="h4C-dN-yjP"/>
@@ -541,6 +542,7 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="inverse white bs-logotype" width="4084" height="678"/>
         <image name="list.number" catalog="system" width="128" height="97"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mappin" catalog="system" width="105" height="128"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
