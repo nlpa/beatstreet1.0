@@ -14,8 +14,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
         // Connects mapKit
         @IBOutlet weak var mapView: MKMapView!
-        
+        // pass the location to another view ctrl
+       
         var locationManager = CLLocationManager()
+
         let authorizationStatus = CLLocationManager.authorizationStatus()
         let regionRadius: Double = 1000
         var numberOfLongPress : Int = 0

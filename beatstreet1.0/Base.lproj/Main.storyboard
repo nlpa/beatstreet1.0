@@ -324,6 +324,14 @@
                                     <action selector="chooseImage:" destination="K5D-wE-Dc2" eventType="touchUpInside" id="sba-73-I3o"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8i-6W-xpp">
+                                <rect key="frame" x="20" y="408" width="374" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RfC-FQ-KM7"/>
                         <color key="backgroundColor" red="0.076234460709999993" green="0.075866178290000003" blue="0.076602743129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -377,6 +385,7 @@
                     <connections>
                         <outlet property="imageView" destination="lgF-cf-1cy" id="MrG-Ua-15m"/>
                         <outlet property="imgInput" destination="lgF-cf-1cy" id="3UO-qR-xsg"/>
+                        <outlet property="location" destination="F8i-6W-xpp" id="THi-JW-6ja"/>
                         <outlet property="mobileNumber" destination="nug-Xq-Wpx" id="A9P-02-lnM"/>
                         <outlet property="segue" destination="DAg-ux-Vqs" id="rwR-XO-EVN"/>
                         <outlet property="wardInput" destination="cwM-oX-ODN" id="nVd-X7-LQB"/>

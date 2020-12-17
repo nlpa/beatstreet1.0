@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Firebase
 import SDWebImage
+import CoreLocation
 
 // for image upload to firebase storage
 import TinyConstraints
@@ -21,17 +22,22 @@ struct MyKeys {
     static let imageUrl = "imageUrl"
 }
 
-class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mobileNumber: UITextField!
     @IBOutlet var wardInput: UITextField!
     @IBOutlet var imgInput: UIImageView!
+    @IBOutlet var location: UILabel!
     
-    let listToUsers = "ListToUsers"
+    var locationData:CLLocationManager?
+
     
-    var items: [Report] = []
-    var user: User!
-    var userCountBarButtonItem: UIBarButtonItem!
+//    let listToUsers = "ListToUsers"
+//    var items: [Report] = []
+//    var user: User!
+//    var userCountBarButtonItem: UIBarButtonItem!
+    
+//    var urlString = ""
     var reportType = "beat street"
     let rootRef = Database.database().reference()
     let ref = Database.database().reference(withPath: "reports")
@@ -39,16 +45,12 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     // To upload Images or to take a pic with the camera
-    
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBAction func chooseImage(_ sender: Any)
-    {
+    @IBAction func chooseImage(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
@@ -65,7 +67,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true)
-            
         }
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
@@ -74,7 +75,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         actionSheet.addAction(libraryAction)
         present(actionSheet, animated: true)
         
-}
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
@@ -88,11 +89,11 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    func uploadPhoto() {
+    func uploadPhoto() -> String {
         guard let image = imageView.image,
               let data = image.jpegData(compressionQuality: 1.0) else {
             presentAlert(title: "Error", message: "Something went wrong")
-            return
+            return ""
         }
         let imageName = UUID().uuidString
         
@@ -131,8 +132,11 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                     self.presentAlert(title: "Success", message: "Successfully saved image to database")
                 })
                 
+
             })
+
         }
+        return imageName
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
@@ -190,9 +194,13 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                 //update votes if mobileNumber report exists
                 if snapshot.exists(){
                     self.updateCount(str: text)
-                }else{ // make new report
-                    // 2
-                    let report = Report(type: self.reportType, mobileNumber: text, ward: wardText, votes: 1)
+                }else{ // make a new report
+                    
+                    // add photo to firebase storage
+                    let imgName = self.uploadPhoto()
+
+                    // initialize report with user inputs
+                    let report = Report(type: self.reportType, mobileNumber: text, ward: wardText, image: imgName, votes: 1)
                     // 3 unsure if #3/4 needed??
                     let reportRef = self.ref.child(text.lowercased())
 
@@ -201,7 +209,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                 }
             })
             
-            self.uploadPhoto()
+            
             
         }
         
