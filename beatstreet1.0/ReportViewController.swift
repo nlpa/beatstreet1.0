@@ -37,7 +37,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
 //    var user: User!
 //    var userCountBarButtonItem: UIBarButtonItem!
     
-//    var urlString = ""
     var reportType = "beat street"
     let rootRef = Database.database().reference()
     let ref = Database.database().reference(withPath: "reports")
@@ -131,8 +130,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                     self.imageView.image = UIImage()
                     self.presentAlert(title: "Success", message: "Successfully saved image to database")
                 })
-                
-
             })
 
         }
@@ -196,7 +193,7 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                     self.updateCount(str: text)
                 }else{ // make a new report
                     
-                    // add photo to firebase storage
+                    // add photo to firebase storage && save img name
                     let imgName = self.uploadPhoto()
 
                     // initialize report with user inputs
@@ -208,8 +205,6 @@ class ReportViewController: UIViewController, UIImagePickerControllerDelegate, U
                     reportRef.setValue(report.toAnyObject())
                 }
             })
-            
-            
             
         }
         

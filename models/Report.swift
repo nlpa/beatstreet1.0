@@ -14,18 +14,8 @@ struct Report {
     let key: String
     let type: String
     let mobileNumber: String
-//    let location: String
-    
-    //  let street1: String
-//  let street2: String
-//
     let ward: Int
     let imageName: String
-//
-    // location
-//  let long: Double
-//  let lat: Double
-    
     let votes: Int
 
 //  let addedByUser: String
